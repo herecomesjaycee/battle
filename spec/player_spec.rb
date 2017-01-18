@@ -14,7 +14,7 @@ subject(:player2) {described_class.new("Mark")}
 
 	describe '#attack' do
 	 	it 'should reduce opponent HP by 10' do
-	 		expect(player.attack(player2)).to eq 90
+	 		expect(player.reduce_hp).to eq 90
 	 	end
 	 end
 end

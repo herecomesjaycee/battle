@@ -1,7 +1,7 @@
 class Game
 
-def reduce_hp(player2)
-	player2.hp -=10
+def attack(player)
+	player.reduce_hp
 end
 
 end
