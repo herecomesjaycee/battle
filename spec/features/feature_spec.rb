@@ -20,4 +20,10 @@ RSpec.feature "Attack", :type => :feature do
 		click_link('Attack')
 		expect(page).to have_content ('John attacked Bill!')
 	end
+
+	scenario "Reduce opponent HP by 10" do
+		sign_in_and_play
+		click_link('Attack')
+		expect(page).to have_content ('90')
+	end
 end
