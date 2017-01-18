@@ -11,6 +11,7 @@ RSpec.feature "Hit points", :type => :feature do
 	scenario "Seeing hit points" do
 	sign_in_and_play
 	expect(page).to have_content ('Bill: 100 HP')
+	expect(page).to have_content ('John: 100 HP')
 	end
 end
 
@@ -25,6 +26,14 @@ RSpec.feature "Attack", :type => :feature do
 		sign_in_and_play
 		click_link('Attack')
 		expect(page).to have_content ('90')
+	end
+
+	scenario "Reduce opponent HP by 10" do
+		sign_in_and_play
+		click_link('Attack')
+		click_link('Switch')
+		click_link('Attack')
+		expect(page).to have_content ('John HP has dropped by 10!')
 	end
 end
 
