@@ -14,4 +14,15 @@ let(:player_two) {double :player}
 	# 	expect(game.reduce_hp(player_two)).to change {player_two.hp}.by(-10)
 	 	end
 	 end
+	 
+	 describe '#swich' do
+	 	it 'changes the current player to player_two' do
+	 		expect{game.switch}.to change{game.current_player}.to player_two
+	 	end
+	 	
+	 	it 'changes the current player back to player_one' do
+	 		game.switch
+	 		expect{game.switch}.to change{game.current_player}.to player_one
+	 	end
+	 end
 end

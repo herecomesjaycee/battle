@@ -27,3 +27,13 @@ RSpec.feature "Attack", :type => :feature do
 		expect(page).to have_content ('90')
 	end
 end
+
+RSpec.feature "Switch", :type => :feature do
+	scenario "Players can switch turns" do
+		sign_in_and_play
+		click_link('Attack')
+		click_link('Switch!')
+		expect(page).to_not have_content ("John is playing")
+		expect(page).to have_content ("Bill is playing")
+	end
+end

@@ -1,12 +1,13 @@
 class Game
 
-attr_reader :player_one, :player_two, :current_player
+attr_reader :player_one, :player_two, :current_player, :current_opponent
 
 
 def initialize(player_one,player_two)
 	@player_one = player_one
 	@player_two = player_two
 	@current_player = player_one
+	@current_opponent = player_two
 end
 
 def attack(player)
@@ -14,12 +15,14 @@ def attack(player)
 end
 
 def switch
- if @current_player == @player_one 
-    @current_player = @player_two
-end
- if @current_player == @player_two 
- @current_player = @player_one
-end
+    if @current_player == player_one
+        @current_player = player_two
+        @current_opponent = player_one
+    elsif @current_player == player_two
+        @current_player = player_one
+        @current_opponent = player_two
+    end
+
 end
 
 end
