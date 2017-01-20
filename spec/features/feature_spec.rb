@@ -46,3 +46,16 @@ RSpec.feature "Switch", :type => :feature do
 		expect(page).to have_content ("Bill is playing")
 	end
 end
+
+RSpec.feature "Lose", :type => :feature do
+	scenario "Player(s) can lose and end the game" do
+		sign_in_and_play
+		19.times do 
+		click_link('Attack')
+		click_link('Switch')
+		end
+		expect(page).to have_content ("Bill lose the game")
+	end
+end
+
+
